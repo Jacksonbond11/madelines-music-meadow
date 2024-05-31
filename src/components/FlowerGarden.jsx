@@ -203,10 +203,10 @@ const FlowerGarden = () => {
 
   const calculateFlowerPositions = () => {
     const minY = window.innerHeight * 0.4;
-    const maxY = window.innerHeight * 0.9;
+    const maxY = window.innerHeight * 0.93;
     const flowers = [];
     const topTracks = tracks.map((track) => {
-      const size = track.popularity * minY * 0.003;
+      const size = track.popularity * minY * 0.005;
       const position = placeFlower(flowers, size, minY, maxY);
       flowers.push({ ...position, size });
       return {
