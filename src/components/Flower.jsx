@@ -1,27 +1,7 @@
 import React, { useState } from "react";
 
-const Flower = ({
-  cx,
-  cy,
-  petalColor,
-  petalCount,
-  petalLength,
-  petalWidth,
-  size,
-  song,
-  artist,
-  plays,
-  image,
-}) => {
+const Flower = ({ cx, cy, flowerimg, image, size, song, artist }) => {
   const [showTooltip, setShowTooltip] = useState(false);
-
-  const petalData = Array.from({ length: petalCount }, (_, i) => ({
-    cx: 0,
-    cy: -petalLength / 2,
-    rx: petalWidth,
-    ry: petalLength,
-    rotate: (360 / petalCount) * i,
-  }));
 
   return (
     <div
@@ -30,34 +10,21 @@ const Flower = ({
         left: cx - size / 2,
         top: cy - size / 2,
         width: size,
-        height: size + 40,
-        zIndex: 30,
+        height: size,
+        zIndex: showTooltip ? 100 : 30,
       }}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      <svg viewBox="0 0 100 140">
-        {/* Draw the stem */}
-        <rect x="48" y="60" width="4" height="80" fill="green" />
-        {/* Draw the center of the flower */}
-        <circle cx="50" cy="50" r="10" fill="yellow" />
-        {/* Draw the petals */}
-        {petalData.map((petal, index) => (
-          <ellipse
-            key={index}
-            cx="50"
-            cy="50"
-            rx={petal.rx}
-            ry={petal.ry}
-            fill={petalColor}
-            transform={`rotate(${petal.rotate}, 50, 50)`}
-          />
-        ))}
-      </svg>
+      <img
+        src={flowerimg}
+        alt={song}
+        style={{ width: "100%", height: "100%" }}
+      />
       {showTooltip && (
         <div
-          className="absolute bg-white text-black p-2 rounded shadow-lg z-50 w-[100px]"
-          style={{ top: -50, left: size, zIndex: 100 }}
+          className="absolute bg-white text-black p-2 rounded shadow-lg w-[100px]"
+          style={{ top: -50, left: size, zIndex: 200 }}
         >
           <img src={`${image}`} alt="album cover" />
           <div>
