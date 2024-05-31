@@ -11,6 +11,7 @@ const Flower = ({
   song,
   artist,
   plays,
+  image,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -56,16 +57,14 @@ const Flower = ({
       {showTooltip && (
         <div
           className="absolute bg-white text-black p-2 rounded shadow-lg"
-          style={{ top: -60, left: size / 2, zIndex: 40 }}
+          style={{ top: -60, left: size, zIndex: 40 }}
         >
+          <img src={`${image}`} alt="album cover" />
           <div>
             <strong>Song:</strong> {song}
           </div>
           <div>
             <strong>Artist:</strong> {artist}
-          </div>
-          <div>
-            <strong>Plays:</strong> {plays}
           </div>
         </div>
       )}

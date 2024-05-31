@@ -2,7 +2,7 @@ import React from "react";
 
 const Grass = () => {
   return (
-    <div className="w-full h-[80vh] bg-green-700 fixed bottom-0 overflow-hidden">
+    <div className="w-full h-[80vh] bg-green-700  overflow-hidden">
       <div className="absolute bottom-0 left-0 w-2 h-8 bg-green-500 transform rotate-45"></div>
       <div className="absolute bottom-0 left-4 w-2 h-8 bg-green-500 transform -rotate-45"></div>
       <div className="absolute bottom-0 left-8 w-2 h-8 bg-green-500 transform rotate-45"></div>
