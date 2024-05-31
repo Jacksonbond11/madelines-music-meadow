@@ -56,8 +56,8 @@ const Flower = ({
       </svg>
       {showTooltip && (
         <div
-          className="absolute bg-white text-black p-2 rounded shadow-lg"
-          style={{ top: -60, left: size, zIndex: 40 }}
+          className="absolute bg-white text-black p-2 rounded shadow-lg z-50 w-[100px]"
+          style={{ top: -50, left: size, zIndex: 100 }}
         >
           <img src={`${image}`} alt="album cover" />
           <div>
